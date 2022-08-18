@@ -1,0 +1,69 @@
+version: "3.9"
+
+services:
+  wordpress:
+    container_name: ss-starter-wordpress
+    build:
+      context: .
+      dockerfile: conf/wp.Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./themes:/var/www/html/wp-content/themes
+      - ./uploads:/var/www/html/wp-content/uploads:rw
+      - ./conf/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./conf/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ss-starter-wordpress
+      WORDPRESS_DB_PASSWORD: ss-starter-wordpress
+      WORDPRESS_DB_NAME: ss-starter-wordpress
+
+  db:
+    platform: linux/x86_64
+    container_name: ss_starter_wordpress_mysql_db
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret-password
+      MYSQL_DATABASE: ss-starter-wordpress
+      MYSQL_USER: ss-starter-wordpress
+      MYSQL_PASSWORD: ss-starter-wordpress
+    ports:
+      - 3306:3306
+
+  node:
+    image: node:18.7.0
+    container_name: ss-starter-wordpress_node
+    working_dir: /ss-starter-wordpress-theme
+    volumes:
+      - ./themes/ss-starter-wordpress:/ss-starter-wordpress-theme
+    command: [sh, -c, "npm i && npm run watch"]
+
+  cli:
+    container_name: ss-starter-wordpress_wpcli
+    image: wordpress:6.0.1-php8.0
+    volumes:
+      - wordpress_data:/var/www/html
+      - db_data:/var/lib/mysql
+    depends_on:
+      - db
+      - wordpress
+    working_dir: /var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ss-starter-wordpress-dev
+      WORDPRESS_DB_PASSWORD: ss-starter-wordpress-dev
+      WORDPRESS_DB_NAME: ss-starter-wordpress-dev
+
+volumes:
+  db_data: {}
+  wordpress_data: {}
