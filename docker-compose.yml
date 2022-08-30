@@ -43,14 +43,16 @@ services:
   node:
     image: node:18.7.0
     container_name: ss-starter-wordpress_node
-    working_dir: /ss-starter-wordpress-theme
+    working_dir: /ss-starter-wordpress
     volumes:
-      - ./themes/ss-starter-wordpress:/ss-starter-wordpress-theme
+      - ./themes/ss-starter-wordpress:/ss-starter-wordpress
     command: [sh, -c, "npm i && npm run watch"]
 
   cli:
     container_name: ss-starter-wordpress_wpcli
-    image: wordpress:6.0.1-php8.0
+    build:
+      context: .
+      dockerfile: conf/wpcli.Dockerfile
     volumes:
       - wordpress_data:/var/www/html
       - db_data:/var/lib/mysql
