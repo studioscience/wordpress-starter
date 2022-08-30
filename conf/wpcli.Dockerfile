@@ -10,4 +10,4 @@ USER www-data
 
 ENTRYPOINT [ "/bin/sh", "-c", "sleep infinity" ]
 
-COPY package.json /themes/ss-starter-wordpress-theme
+# COPY package.json /themes/ss-starter-wordpress
