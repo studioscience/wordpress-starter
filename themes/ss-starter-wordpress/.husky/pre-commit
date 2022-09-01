@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-cd ./themes/ss-starter-wordpress && npx lint-staged --allow-empty
+cd ./themes/blackspace-theme && npx lint-staged --allow-empty
 cd ../.. && make test
 

@@ -146,4 +146,4 @@ mu-plugins/wpe-wp-sign-on-plugin*
 *.wmv
 *.avi
 
-/themes/ss-starter-wordpress/dist
+/themes/ss-wordpress-starter/dist
