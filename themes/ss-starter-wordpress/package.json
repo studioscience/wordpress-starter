@@ -12,7 +12,7 @@
     "lint:php": "prettier \"**/functions/*.php\" --write",
     "lint": "concurrently \"npm:lint:*\" --group --prefix-colors cyan,yellow",
     "stylelint-check": "stylelint-config-prettier-check",
-    "prepare": "cd ../../ && husky install ./themes/studio-starter/.husky"
+    "prepare": "cd ../../ && husky install ./themes/ss-starter-wordpress/.husky"
   },
   "repository": {
     "type": "git",
