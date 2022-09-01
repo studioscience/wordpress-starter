@@ -2,13 +2,14 @@
 1. Install [Docker](https://docs.docker.com/engine/install/)
 2. Install [WP-CLI](https://make.wordpress.org/cli/handbook/guides/installing/)
 3. Setup keys for [WP Engine SSH Gateway](https://wpengine.com/support/ssh-gateway/)
+  - connect dbsync in `bin/db-sync`
 4. Enter the command `make start` to build the local dev servers
 5. Enter the command `make sync` to sync database and upload dirs to your machine
 6. Visit `http://127.0.0.1:8000` in a web browser to view the site
 
 # Starter Theme
 
-Webpack is set up to build the theme files. All NPM commands should be run in `ss-wordpress-starter-theme/` rather than the project root.
+Webpack is set up to build the theme files. All NPM commands should be run in `ss-wordpress-starter/` rather than the project root.
 
 ## Structure
 
