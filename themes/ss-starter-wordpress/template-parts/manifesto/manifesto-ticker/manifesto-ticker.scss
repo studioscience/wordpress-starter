@@ -1,0 +1,48 @@
+.manifesto-ticker {
+  overflow: hidden;
+  height: 1.5em;
+  line-height: 2;
+  width: 100%;
+
+  @media screen and (prefers-reduced-motion) {
+    display: none;
+  }
+}
+
+.manifesto-ticker .ticker-inner {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(-400px);
+  width: calc(100% + 400px);
+
+  & > .ticker-item {
+    padding-right: 0.8889em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    white-space: nowrap;
+    font-family: $abc-social-condensed-book, sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+
+    &.-active {
+      animation: ticker-motion 13000ms forwards linear infinite;
+    }
+  }
+
+  &:hover > .ticker-item.-active {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes ticker-motion {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: calc(100% + 400px);
+  }
+}

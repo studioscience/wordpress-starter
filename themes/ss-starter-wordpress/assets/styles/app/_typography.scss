@@ -1,0 +1,123 @@
+.typography-demo {
+  color: $color-offwhite;
+  background: $color-maroon;
+  padding: 50px;
+
+  * {
+    margin-bottom: 50px;
+  }
+
+  pre {
+    background-color: black;
+    padding: 10px;
+  }
+}
+
+h1,
+.--as-h1 {
+  font-family: $abc-social-condensed-book, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 99%;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    font-size: 44px;
+  }
+}
+
+h1.serif,
+.--as-h1.serif {
+  font-family: $clearface-regular, serif;
+  letter-spacing: -0.01em;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    letter-spacing: -0.02em;
+  }
+}
+
+h2,
+.--as-h2 {
+  font-family: $abc-social-condensed-book, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 110%;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    font-size: 32px;
+  }
+}
+
+h2.serif,
+.--as-h2.serif {
+  font-family: $clearface-regular, serif;
+  letter-spacing: -0.01em;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    font-size: 32px;
+  }
+}
+
+h3,
+.--as-h3 {
+  font-family: $abc-social-condensed-book, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 110%;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    font-size: 28px;
+  }
+}
+
+h3.serif,
+.--as-h3.serif {
+  font-family: $clearface-regular, serif;
+  letter-spacing: -0.01em;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    letter-spacing: unset;
+  }
+}
+
+label {
+  font-family: $abc-social-condensed-book, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    font-size: 24px;
+  }
+}
+
+label.eyebrow {
+  font-size: 18px;
+  line-height: 120%;
+}
+
+p {
+  font-family: $abc-social-regular, serif;
+  font-style: normal;
+  font-weight: 350;
+  font-size: 17px;
+  line-height: 160%;
+
+  // mobile
+  @include breakpoint(sm-only) {
+    font-size: 16px;
+  }
+}

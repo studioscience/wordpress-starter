@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+cd ./themes/blackspace-theme && npx lint-staged --allow-empty
+cd ../.. && make test
+

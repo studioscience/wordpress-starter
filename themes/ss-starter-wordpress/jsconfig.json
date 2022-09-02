@@ -1,0 +1,11 @@
+// Maps paths for aliases to restore VSCode’s IntelliSense functions.
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "assets": ["assets"],
+      "blocks": ["blocks"],
+      "template-parts": ["template-parts"],
+    }
+  }
+}

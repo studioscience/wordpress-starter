@@ -1,0 +1,7 @@
+**/vendor
+dist/**
+style.css
+**/*.jsx
+**/*.js
+*.jsx
+*.js

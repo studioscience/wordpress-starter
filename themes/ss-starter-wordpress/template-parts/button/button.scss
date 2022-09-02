@@ -1,0 +1,94 @@
+:root {
+  --button-font-size-normal: 24px;
+  --button-font-size-small: 14px;
+
+  @media screen and #{$breakpoint-lg} {
+    --button-font-size-normal: 28px;
+    --button-font-size-small: 16px;
+  }
+}
+
+.button {
+  align-items: baseline;
+  border: solid 1px currentcolor;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+  font-size: var(--button-font-size-normal);
+  font-family: $abc-social-regular, sans-serif; /* todo: define a font-family var for this */
+  justify-content: center;
+  line-height: 1;
+  padding: 4px 12px 2px; // todo: ems?
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &,
+  &.--variant-primary {
+    background: $color-offwhite;
+    color: $color-offblack;
+
+    &:not(.--disabled):hover {
+      background: transparent;
+      color: $color-offwhite;
+    }
+
+    &.--disabled {
+      background: #{$color-offwhite}#{$hex-50};
+    }
+  }
+
+  &.--variant-secondary {
+    background: transparent;
+    color: $color-offwhite;
+
+    &:not(.--disabled):hover {
+      background: $color-offwhite;
+      color: $color-offblack;
+    }
+
+    &.--disabled {
+      color: #{$color-offwhite}#{$hex-50};
+    }
+  }
+
+  &.--variant-tertiary {
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px currentcolor;
+    border-radius: 0;
+    color: #{$color-offwhite}#{$hex-60};
+    font-size: var(--button-font-size-small);
+    line-height: 1;
+    padding: 0;
+
+    &:not(.--disabled):hover {
+      color: $color-offwhite;
+    }
+
+    &.--disabled {
+      color: #{$color-offwhite}#{$hex-40};
+    }
+  }
+
+  &.--variant-text,
+  &.--variant-text:hover,
+  &.--variant-text.--disabled {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: $color-offwhite;
+    font-family: $abc-social-condensed-book, sans-serif;
+  }
+
+  &.--disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  & > .icon {
+    aspect-ratio: 1;
+    height: 0.714em; /* cap-height / font-size */
+    margin-left: 0.4107em;
+  }
+}

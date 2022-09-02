@@ -1,0 +1,30 @@
+.site-footer {
+  &__nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    // li {
+    //   display: inline-block;
+    //   padding: 10px 5px 10px 0; // temporary
+    // }
+
+    // &__main-item {
+    //   &.-last {
+    //     position: relative;
+
+    //     &::after {
+    //       content: " ";
+    //       position: absolute;
+    //       top: 0;
+    //       bottom: 0;
+    //       right: 0;
+    //       margin: auto;
+    //       height: 15px; // temporary
+    //       width: 2px; // temporary
+    //       background: red; // temporary
+    //     }
+    //   }
+    // }
+  }
+}

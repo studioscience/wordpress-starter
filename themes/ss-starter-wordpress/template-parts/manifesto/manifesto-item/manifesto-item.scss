@@ -1,0 +1,32 @@
+.manifesto-item {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+
+  & > .icon-spacer {
+    aspect-ratio: 1;
+  }
+
+  & > .icon,
+  & > .icon-spacer {
+    height: 1.25em;
+    margin-right: 20px;
+
+    @include breakpoint(sm-only) {
+      height: 1.1429em; /* line-height adjustment per-font */
+    }
+
+    &.--icon-margin-s {
+      margin-right: 10px;
+    }
+
+    &.--icon-margin-m {
+      margin-right: 20px;
+    }
+
+    &.--icon-margin-l {
+      margin-right: 40px;
+    }
+  }
+}

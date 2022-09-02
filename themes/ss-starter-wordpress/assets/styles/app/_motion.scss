@@ -1,0 +1,85 @@
+// CURVES
+
+// A: Should only be used on elements that are constant.
+// Examples of this are timers and consistently moving image carousels.
+$curve-a: cubic-bezier(0, 0, 1, 1);
+
+// B: Primarily used for revealing elements.
+// This includes load-ins, revealing hover states, and revealing of buttons.
+$curve-b: cubic-bezier(0.05, 0, 0, 1);
+
+// C: Primarily used for disappearing elements.
+// Buttons disappearing, fading off elements on filter, and when leaving an underline hover state.
+$curve-c: cubic-bezier(0.24, 1.56, 0.59, 1);
+
+// D: Generally for transitioning elements that are always visible.
+// One example of this is icon movements (ex: audio bars) and the changing of colors.
+$curve-d: cubic-bezier(0.6, 0, 0.2, 1);
+
+// SPEEDS
+
+// Primarily used for motion that is a direct response to a user’s interaction with an element.
+// Examples includes hover states and menus opening / closing.
+$speed-1: 250ms;
+
+// Used for secondary motion, generally during a transition of states.
+// The main examples of this the speed are filtering of stories and continuous icon motion (ie. audio bars)
+$speed-2: 500ms;
+
+// Primarily used for loading in elements.
+// This allows for the website to have a sense of expression and add interest to the user’s experience.
+$speed-3: 835ms;
+
+// Fade in animation
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// Fade out animation
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+// Eyebrow hover state
+@mixin eyebrow-hover {
+  &::before {
+    background-color: var(--theme-button-secondary);
+    width: 100%;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+  }
+
+  &::after {
+    background-color: var(--theme-button);
+
+    @include with-motion {
+      transition: width $curve-b $speed-1;
+    }
+
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}

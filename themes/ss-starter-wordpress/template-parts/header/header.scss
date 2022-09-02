@@ -1,0 +1,167 @@
+$header-min-height: 78px; // as per figma designs
+$hamburger-icon-width: 40px;
+$hamburger-icon-height: 30px;
+$hamburger-icon-bar-height: 2px;
+
+.site-header {
+  display: flex;
+  align-items: center;
+  height: 3.5vw; // TO DO: Awaiting feedback from design on responsive vs static specs
+  min-height: $header-min-height;
+  padding: 1.5vw; // TO DO: Sub in padding component once it's ready
+  box-sizing: border-box;
+  background-color: $color-offblack;
+  border-bottom: 1px solid $color-offwhite-opaque;
+
+  @include breakpoint(sm-only) {
+    padding: 1.5vw 4.5vw; // TO DO: Sub in padding component once it's ready
+  }
+
+  &__logo {
+    img {
+      height: 1.5vw; // TO DO: Awaiting feedback from design on responsive vs static specs
+      min-height: 30px; // TO DO: Awaiting feedback from design on responsive vs static specs
+      vertical-align: middle;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+
+    &__menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: $color-offblack;
+
+      @include breakpoint(sm-only) {
+        display: none;
+      }
+
+      li {
+        display: inline-block;
+        padding-left: 1.25vw; // TO DO: Awaiting feedback from design on responsive vs static specs
+        line-height: 1;
+
+        a {
+          height: 46px; // as per figma designs for donate btn - applying to all tags retains integrity of line height TO DO: update for flexible units if design asks
+          line-height: 46px;
+          color: $color-offwhite;
+          font-family: $abc-social-condensed-book, sans-serif;
+          text-transform: uppercase;
+          text-decoration: none;
+          font-size: calc(
+            14px + 0.5vw
+          ); // TO DO - to be switched out once base font styles are set up
+        }
+
+        &:last-child {
+          // TO DO: add global btn style classes to last item in nav-item.php once they've been merged in
+
+          a {
+            display: block;
+          }
+        }
+      }
+
+      &__main-item {
+        &.-last {
+          position: relative;
+          padding-right: 1.25vw; // TO DO: Awaiting feedback from design on responsive vs static specs
+
+          &::after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -1px;
+            margin: auto;
+            width: 1px;
+            background-color: $color-offwhite;
+          }
+        }
+      }
+    }
+
+    &__hamburger-btn {
+      display: none;
+      width: $hamburger-icon-width;
+      height: $hamburger-icon-height;
+      position: relative;
+      transform: rotate(0);
+      transition: $speed-2 $curve-a;
+      cursor: pointer;
+      border: 0;
+      background-color: transparent;
+
+      @include breakpoint(sm-only) {
+        display: flex;
+      }
+
+      span {
+        display: block;
+        position: absolute;
+        height: $hamburger-icon-bar-height;
+        width: 100%;
+        background-color: $color-offwhite;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0);
+        transition: $speed-1 $curve-a;
+
+        &:nth-child(2) {
+          top: 0;
+        }
+
+        &:nth-child(3) {
+          top: 12px;
+        }
+
+        &:nth-child(4) {
+          top: 24px;
+        }
+      }
+    }
+  }
+
+  // TO DO: update all of this once design mobile nav design is ready
+  &.-active {
+    @include breakpoint(sm-only) {
+      .site-header__nav {
+        &__menu {
+          display: block;
+          position: absolute;
+          margin: auto;
+          top: $header-min-height;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          li {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+          }
+        }
+
+        &__hamburger-btn {
+          span {
+            &:nth-child(2) {
+              top: 12px;
+              transform: rotate(135deg);
+            }
+
+            &:nth-child(3) {
+              opacity: 0;
+            }
+
+            &:nth-child(4) {
+              top: 12px;
+              transform: rotate(-135deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}

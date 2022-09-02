@@ -1,0 +1,73 @@
+// Breakpoint pixel values
+$breakpoint-sm-max-width: 767px;
+$breakpoint-md-max-width: 1023px;
+$breakpoint-lg-max-width: 1439px;
+$breakpoint-xl-max-width: 1919px;
+$breakpoint-sm-max-height: 900px;
+
+// Small breakpoint (mobile)
+$breakpoint-sm-only: "(max-width: #{$breakpoint-sm-max-width})";
+
+// Medium breakpoint (tablets)
+$breakpoint-md: "(min-width: #{($breakpoint-sm-max-width + 1)})";
+$breakpoint-md-only: "(min-width: #{($breakpoint-sm-max-width + 1)}) and (max-width: #{$breakpoint-md-max-width})";
+
+// Medium and down
+$breakpoint-md-down: "(max-width: #{($breakpoint-md-max-width)})";
+
+// Large breakpoint (laptop/small desktop)
+$breakpoint-lg: "(min-width: #{($breakpoint-md-max-width + 1)})";
+$breakpoint-lg-only: "(min-width: #{($breakpoint-md-max-width + 1)}) and (max-width: #{$breakpoint-lg-max-width})";
+
+// Extra Large breakpoint (medium/large desktop)
+$breakpoint-xl: "(min-width: #{($breakpoint-lg-max-width + 1)})";
+
+// Extra extra Large breakpoint (Extra large desktop)
+$breakpoint-xxl: "(min-width: #{($breakpoint-xl-max-width + 1)})";
+
+// Height breakpoint desktop
+$breakpoint-sm-height: "(min-width: #{($breakpoint-sm-max-width + 1)}) and (max-height: #{$breakpoint-sm-max-height})";
+
+// Credit: http://css-tricks.com/conditional-media-query-mixins/
+@mixin breakpoint($point) {
+  @if $point == sm-only {
+    @media #{$breakpoint-sm-only} {
+      @content;
+    }
+  } @else if $point == md-down {
+    @media #{$breakpoint-md-down} {
+      @content;
+    }
+  } @else if $point == md {
+    @media #{$breakpoint-md} {
+      @content;
+    }
+  } @else if $point == md-only {
+    @media #{$breakpoint-md-only} {
+      @content;
+    }
+  } @else if $point == lg {
+    @media #{$breakpoint-lg} {
+      @content;
+    }
+  } @else if $point == lg-only {
+    @media #{$breakpoint-lg-only} {
+      @content;
+    }
+  } @else if $point == xl {
+    @media #{$breakpoint-xl} {
+      @content;
+    }
+  } @else if $point == xxl {
+    @media #{$breakpoint-xxl} {
+      @content;
+    }
+  } @else if $point == desktop-height-sm {
+    @media #{$breakpoint-sm-height} {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint #{$point}.";
+    @content;
+  }
+}

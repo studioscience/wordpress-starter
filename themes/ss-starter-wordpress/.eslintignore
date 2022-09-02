@@ -1,0 +1,5 @@
+**/vendor
+**/utils/admin.js
+blocks/all_stories/all_stories.js
+dist/**
+acf-json/**

@@ -1,0 +1,21 @@
+{
+    "extends": [
+      "stylelint-config-standard-scss",
+      "stylelint-config-prettier"
+    ],
+    "rules": {
+        "color-function-notation": null,
+        "max-nesting-depth": [
+            7,
+            {
+                "ignore": ["blockless-at-rules"]
+            }
+        ],
+        "max-line-length": null,
+        "no-descending-specificity": null,
+        "no-invalid-double-slash-comments": null,
+        "property-no-unknown": null,
+        "scss/operator-no-newline-after": null,
+        "selector-class-pattern": "^([a-z0-9]*)([-_]+[a-z0-9]+)*$"
+    }
+}

@@ -1,0 +1,9 @@
+.manifesto-list {
+  & > li {
+    margin-bottom: 0.125em;
+
+    @include breakpoint(sm-only) {
+      margin-bottom: 0.2857em;
+    }
+  }
+}
