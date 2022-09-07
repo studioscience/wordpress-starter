@@ -1,4 +1,5 @@
 # Dev Set Up
+
 1. Install [Docker](https://docs.docker.com/engine/install/)
 2. Install [WP-CLI](https://make.wordpress.org/cli/handbook/guides/installing/)
 3. Setup keys for [WP Engine SSH Gateway](https://wpengine.com/support/ssh-gateway/)
@@ -7,20 +8,40 @@
 5. Enter the command `make sync` to sync database and upload dirs to your machine
 6. Visit `http://127.0.0.1:8000` in a web browser to view the site
 
+## Prerequisites
+
+This theme relies on **NPM** and **Composer** in order to load dependencies and packages.
+**Webpack** should always be running and watching during the development process, in order to properly compile and update files.
+
+* Install [Composer](https://getcomposer.org/)
+* Install [Node](https://nodejs.org/)
+
 # Starter Theme
 
 Webpack is set up to build the theme files. All NPM commands should be run in `ss-wordpress-starter/` rather than the project root.
 
+* Open a Terminal window on the location of the theme folder
+* Execute `composer install`
+* Execute `npm install`
+
+## Webpack
+
+swps uses [Laravel Mix](https://laravel.com/docs/5.6/mix) for assets management. Check the official documentation for advanced options
+
+* Edit the `webpack.mix.js` in the root directory of your theme to set your localhost URL and customize your assets
+* `npm run watch` to start browserSync with LiveReload and proxy to your custom URL
+* `npm run dev` to quickly compile and bundle all the assets without watching
+* `npm run prod` to compile the assets for production
+
 ## Structure
 
 ```
-starter-theme/
+starter-wordpress/
 ├── acf-json/
 ├── assets/
 ├── dist/
-├── functions/
 ├── template-parts/
-├── [...theme-files].php
+├── views/
 ├── functions.php
 └── style.css
 
@@ -54,6 +75,17 @@ WordPress's entrypoint for PHP functions and hooks.
 
 Every WordPress theme requires a file called `styles.css` that contains a formatted comment with metadata about the field. We are not including any actual CSS in this file.
 
+## Features
+
+* Bult-in `webpack.mix.js` for fast development and compiling.
+* `OOP` PHP, and `namespaces` with `PSR4` autoload.
+* `Customizer` ready with boilerplate and example classes.
+* `Gutenberg` ready with boilerplate and example blocks.
+* `ES6 Javascript` syntax ready.
+* Compatible with `JetPack`, `WooCommerce`, `ACF PRO`, and all the most famous plugins.
+* Built-in `FlexBox` Responsive Grid.
+* Modular, Components based file structure.
+
 ### Other root PHP files
 
 The other PHP files are theme files. When rendering a page, WordPress looks for a theme file that matches the content it tries to render. It starts by looking for highly specific files, before falling back to more and more generic files (eventually defaulting to `index.php`).
@@ -66,6 +98,10 @@ The other PHP files are theme files. When rendering a page, WordPress looks for 
 ### `npm run watch`
 
 This will watch all JS and style files in the theme for changes and then run linters & build on save accordingly.
+
+### `npm run dev`
+
+to quickly compile and bundle all the assets without watching
 
 ### `npm run lint`
 

@@ -4,22 +4,22 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package awps
+ * @package swps
  */
 
-if ( ! is_active_sidebar( 'awps-sidebar' ) ) :
+if ( ! is_active_sidebar( 'swps-sidebar' ) ) :
 	return;
 endif;
 ?>
 
 <?php
 if ( is_customize_preview() ) {
-	echo '<div id="awps-sidebar-control"></div>';
+	echo '<div id="swps-sidebar-control"></div>';
 }
 ?>
 
 <aside id="secondary" class="widget-area" role="complementary">
 	<?php
-	dynamic_sidebar( 'awps-sidebar' );
+	dynamic_sidebar( 'swps-sidebar' );
 	?>
 </aside><!-- #secondary -->

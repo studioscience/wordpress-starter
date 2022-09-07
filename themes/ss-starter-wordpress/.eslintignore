@@ -1,5 +1,5 @@
-**/vendor
-**/utils/admin.js
-blocks/all_stories/all_stories.js
-dist/**
-acf-json/**
+/node_modules/**
+/vendor/**
+/assets/dist/**
+
+webpack.mix.js

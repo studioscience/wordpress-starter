@@ -1,5 +1,5 @@
 /*
- * AWPS uses Laravel Mix
+ * swps uses Laravel Mix
  *
  * Check the documentation at
  * https://laravel-mix.com/
