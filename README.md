@@ -1,3 +1,11 @@
+## Prerequisites
+
+This theme relies on **NPM** and **Composer** in order to load dependencies and packages.
+**Webpack** should always be running and watching during the development process, in order to properly compile and update files.
+
+* Install [Composer](https://getcomposer.org/)
+* Install [Node](https://nodejs.org/)
+
 # Dev Set Up
 
 1. Install [Docker](https://docs.docker.com/engine/install/)
@@ -7,14 +15,6 @@
 4. Enter the command `make start` to build the local dev servers
 5. Enter the command `make sync` to sync database and upload dirs to your machine
 6. Visit `http://127.0.0.1:8000` in a web browser to view the site
-
-## Prerequisites
-
-This theme relies on **NPM** and **Composer** in order to load dependencies and packages.
-**Webpack** should always be running and watching during the development process, in order to properly compile and update files.
-
-* Install [Composer](https://getcomposer.org/)
-* Install [Node](https://nodejs.org/)
 
 # Starter Theme
 
