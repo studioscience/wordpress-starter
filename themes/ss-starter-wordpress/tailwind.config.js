@@ -32,15 +32,7 @@ module.exports = {
       '5xl': '3.052rem',
       '6xl': '4em',
     },
-    extend: {
-      backdropBrightness: {
-        25: '.25',
-        175: '1.75',
-      },
-      scale: {
-        '-100': '-1',
-      },
-    },
+    extend: {},
   },
   content: [
     './assests/src/scripts/**/*.js',
@@ -59,12 +51,5 @@ module.exports = {
     './search.php',
     './searchform.php',
     './single.php',
-  ],
- 
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-    require('tailwind-scrollbar-hide'),
   ],
 }
