@@ -15,3 +15,11 @@ endif;
 if ( class_exists( 'swps\\Init' ) ) :
 	swps\Init::register_services();
 endif;
+
+
+@ini_set( 'upload_max_size' , '256M' );
+@ini_set( 'post_max_size', '256M');
+@ini_set( 'max_execution_time', '300' );
+
+// Custom Gutenberg blocks
+require get_template_directory() . '/inc/acf-blocks.php';
