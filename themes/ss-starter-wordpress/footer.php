@@ -30,13 +30,8 @@
 					esc_html( swps\Api\Customizer::text( 'swps_footer_copy_text' ) )
 				);
 			?>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: %1: Theme name. */
 
-				/* translators: %2: Author name. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'swps' ), 'swps', '<a href="http://alecaddd.com/" rel="designer">Alecaddd</a>' );
-			?>
+			
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
